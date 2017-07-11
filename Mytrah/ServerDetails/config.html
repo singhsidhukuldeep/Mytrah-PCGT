@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Config Generator</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <script type="text/javascript" src="assets/js/config/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/config/base64.js"></script>
+        <script type="text/javascript">
+//<!--
+// This will generate the text file content based on the form data
+function buildData(){
+    var seperator = ";";
+    var txtData = $("#input1").val()+seperator+$("#input2").val()+seperator+$("#input3").val()+seperator+$("#input4").val()+seperator+$("#input5").val()+seperator;
+
+
+    return txtData;
+}
+// This will be executed when the document is ready
+$(function(){
+    // This will act when the submit BUTTON is clicked
+    $("#formToSave").submit(function(event){
+        event.preventDefault();
+        var txtData = buildData();
+        window.location.href="data:application/octet-stream;base64,"+Base64.encode(txtData);
+    });
+
+    // This will act when the submit LINK is clicked
+    $("#submitLink").click(function(event){
+        var txtData = buildData();
+        $(this).attr('download','server.config')
+            .attr('href',"data:application/octet-stream;base64,"+Base64.encode(txtData));
+    });
+});
+//-->
+</script>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Mytrah</strong> PCGT Configuration File Generator</h1>
+                                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-10 col-sm-offset-1 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Create Configuration File</h3>
+                            		<p>Enter your server details below</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-code"></i>&nbsp;
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form method="post" action="getserverdetails.jsp" id="formToSave">
+                                    <div class="form-group">
+                                        <label for="">Location of temp folder (File Path)</label>
+                                        <input type="text" class="form-control" name="input1" id="input1" aria-describedby="help" placeholder="(For example, D:\data\temp )">
+
+                                        <small id="help" class="form-text text-muted"><u>Note : This should NOT be in the drive where your Windows Operating System is loaded, where you need ADMIN permissions to access. Also, the format of the file path to be entered should be as follows - D:\data\temp</u></small><br>
+                                        <br><center><strong>Warning: Use backslashes only i.e. \</strong></center>
+                                    </div>
+                                <button type="submit" id="submit" class="btn btn-primary" style="min-width:100%;"><strong>GENERATE CONFIG FILE</strong></button>
+                                  <!-- <a href="javascript://Save as TXT" id="submitLink" class="btn btn-primary" style="min-width:100%; padding:15px;">Generate <strong>Config</strong> File</a> -->
+                                </form>
+		                    </div><p><strong> Developed at </strong>BITS Pilani Hyderabad Campus <!--<a href="PCGT/credits.html" target="_blank">(Credits)</a>--></p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
+</html>

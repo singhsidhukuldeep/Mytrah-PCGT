@@ -1,0 +1,962 @@
+
+
+<!-- CODE MODIFIED BY KULDEEP SINGH SIDHU.
+BITS PILANI HYDERABAD CAMPUS.
+LAST MODIFIED ON 20/06/2017. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PCGT Mytrah</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" language="javascript" src="js/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    </script>
+    <style>
+		.form-group input[type="checkbox"] {
+			display: none;
+		}
+		
+		.form-group input[type="checkbox"] + .btn-group > label span {
+			width: 20px;
+		}
+		
+		.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+			display: none;
+		}
+		.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+			display: inline-block;   
+		}
+		
+		.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+			display: inline-block;
+		}
+		.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+			display: none;   
+		}
+		<!--#####################################################-->
+		
+	</style>
+
+</head>
+
+<body>
+
+	<!-- Form Step Mover JavaScript -->
+    <script src="js/step_mover.js"></script>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>-->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-expanded="false" aria-controls="navbar">
+        			<span class="sr-only">Toggle navigation</span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+    			</button>
+                
+                <a class="navbar-brand" href="index.html"><strong>Mytrah</strong></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Options <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    <li class="divider"></li>
+                        
+                        <li class="">
+                        <a href="index.html"><i class="fa fa-fw fa-edit"></i> Data Entry</a>
+                    </li>
+                    <!-- <li>
+                        <a href="currentdatabase.jsp"><i class="fa fa-fw fa-database"></i> Current Database</a>
+                    </li> -->
+                    <li class="">
+                        <a href="clear.jsp"> <i class="fa fa-fw fa-dashboard"></i> Clear Memory</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                    
+                    <li class="">
+                        <a href="downloadsitedetails.jsp"> <i class="fa fa-fw fa-table"></i> Site Details</a>
+                    </li>    
+                    <li class="">
+                        <a href="downloadfiltered.jsp"> <i class="fa fa-fw fa-table"></i> Filtered Data</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadbinned.jsp"> <i class="fa fa-fw fa-table"></i> Binned Data</a>
+                    </li>
+                    <li class="">
+                        <a href="downloaduncertainty.jsp"> <i class="fa fa-fw fa-table"></i> Uncertainty Data</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadresult1.jsp"> <i class="fa fa-fw fa-newspaper-o"></i> RESULT 1</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadresult2.jsp"> <i class="fa fa-fw fa-newspaper-o"></i> RESULT 2</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadresult3.jsp"> <i class="fa fa-fw fa-newspaper-o"></i> RESULT 3</a>
+                    </li>
+                    <li class="">
+                        <a href="serverconfig.jsp"> <i class="fa fa-fw fa-database"></i> Server Config</a>
+                    </li>                    
+                        
+                    
+                    <li class="divider"></li>
+                    <li class="">
+                        <a href="credits.html"><i class="fa fa-fw fa-trophy"></i> Credits</a>
+                    </li>
+                    
+                    <li class="divider"></li>
+                    <li class="divider"></li>
+                    <li>
+						<center><i class="fa fa-fw fa-copyright"></i> Mytrah  <script type="text/javascript">var cur = 2016; var year = new Date(); if(cur == year.getFullYear()) year = year.getFullYear(); else year = cur + ' - ' + year.getFullYear(); document.write(year);</script></center>
+                    </li>
+                
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-edit"></i> Data Entry</a>
+                    </li>
+                    <li class="divider"></li>
+                    <!-- <li>
+                        <a href="currentdatabase.jsp"><i class="fa fa-fw fa-database"></i> Current Database</a>
+                    </li> -->
+                    <li class="">
+                        <a href="clear.jsp"> <i class="fa fa-fw fa-dashboard"></i> Clear Memory</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo" ><i class="fa fa-fw fa-book"></i> PCGT Database <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                    <li class="">
+                        <a href="downloadsitedetails.jsp"> <i class="fa fa-fw fa-table"></i> Site Details</a>
+                    </li>     
+                    <li class="">
+                        <a href="downloadfiltered.jsp"> <i class="fa fa-fw fa-table"></i> Filtered Data</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadbinned.jsp"> <i class="fa fa-fw fa-table"></i> Binned Data</a>
+                    </li>
+                    <li class="">
+                        <a href="downloaduncertainty.jsp"> <i class="fa fa-fw fa-table"></i> Uncertainty Data</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadresult1.jsp"> <i class="fa fa-fw fa-newspaper-o"></i> RESULT 1</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadresult2.jsp"> <i class="fa fa-fw fa-newspaper-o"></i> RESULT 2</a>
+                    </li>
+                    <li class="">
+                        <a href="downloadresult3.jsp"> <i class="fa fa-fw fa-newspaper-o"></i> RESULT 3</a>
+                    </li>
+                    <li class="">
+                        <a href="serverconfig.jsp"> <i class="fa fa-fw fa-database"></i> Server Config</a>
+                    </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="divider"></li>
+                    <li class="">
+                        <a href="credits.html"><i class="fa fa-fw fa-trophy"></i> Credits</a>
+                    </li>
+                    
+                    <li>
+<div class="col-xs-offset-2"><center><i class="fa fa-fw fa-copyright"></i> Mytrah &nbsp;&nbsp;&nbsp; <script type="text/javascript">var cur = 2016; var year = new Date(); if(cur == year.getFullYear()) year = year.getFullYear(); else year = cur + ' - ' + year.getFullYear(); document.write(year);</script></center></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            PCGT <small>Mytrah</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="index.html">PCGT</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-edit"></i> Data Entry
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- #################### -->
+
+<div class="container-fluid">
+	    <div class="row form-group">
+            <div class="col-lg-12">
+                <ul class="nav nav-pills nav-justified thumbnail setup-panel" style="font-size:11px">
+                    <li class="active"><a href="#step-1">
+                        <h4 class="list-group-item-heading" style="font-size:20px" >Step 1</h4>
+                        <p class="list-group-item-text">SITE DETAILS</p>
+                    </a></li>
+                    <li class=""><a href="#step-2">
+                        <h4 class="list-group-item-heading" style="font-size:20px">Step 2</h4>
+                        <p class="list-group-item-text">FILTERING</p>
+                    </a></li>
+                    <li class=""><a href="#step-3">
+                        <h4 class="list-group-item-heading" style="font-size:20px">Step 3</h4>
+                        <p class="list-group-item-text">STATIC DETAILS</p>
+                    </a></li>
+                    <li class=""><a href="#step-4">
+                        <h4 class="list-group-item-heading" style="font-size:20px">Step 4</h4>
+                        <p class="list-group-item-text">BINNING DATA</p>
+                    </a></li>
+                    <li class=""><a href="#step-5">
+                        <h4 class="list-group-item-heading" style="font-size:20px">Step 5</h4>
+                        <p class="list-group-item-text">UNCERTAINTY</p>
+                    </a></li>
+                    <li class=""><a href="#step-6">
+                        <h4 class="list-group-item-heading" style="font-size:20px">Step 6</h4>
+                        <p class="list-group-item-text">RESULTS</p>
+                    </a></li>
+                    <li class=""><a href="#step-7">
+                        <h4 class="list-group-item-heading" style="font-size:20px">Step 7</h4>
+                        <p class="list-group-item-text">GRAPHS</p>
+                    </a></li>
+                </ul>
+            </div>
+	    </div>
+    </div>
+
+
+
+    <div class="row setup-content" id="step-1"> 
+        <div class="col-lg-12">
+            <div class="col-md-12 well text-center">
+                <h1><font size="4"></font></h1>
+
+<!-- <form> -->
+
+    <div class="container col-xs-12">
+        <div class="row clearfix">
+		    <div class="col-xs-12 column">
+            	 <div class="row">
+                 <center>
+
+							<table class="table table-bordered"><tr><td><center><label><font size="4">STEP 1</font><br><font size="6">SITE DETAILS</font></label></center></td></tr></table>
+                            <div class="form-group">
+                                <br>
+                                <div class="table-responsive">
+                                <table class="table table-hover">
+                                <center>
+                                
+                                	<form action="uploadrawdata.jsp" method="POST" class="container-fluid" enctype = "multipart/form-data">
+                                        <tr><center>
+                                        <th><center>RAW FILE INPUT (CSV COMMA DELIMITED)</center></th></center></tr>
+                                        <tr><td><center><input type="file"  accept=".csv"  placeholder="Raw Data File" name="file" id="file" class="btn btn-md btn-default"></input><br>
+                                        <button type="submit" id="submit" class="btn btn-success btn-sm">UPLOAD</button>
+                                        </center></td></center></tr>
+                                        </form>
+                                </center>
+                               	</table>
+                                <table class="table table-bordered">
+
+                                    <thead>
+                                        <tr>
+                                            <th><font size="4">PARAMETER</font></th>
+                                            <th><font size="4">VALUE</font></th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        
+
+                                        <form action="getsitedetails.jsp" method="POST" class="container-fluid">
+
+                                        <tr>
+                                        <td>SITE NAME</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="sitename" id=""   autocomplete="off" placeholder="Site Name">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>MEASUREMENT PERIOD (FROM)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="fromdate" id=""   autocomplete="off" placeholder="DD-MM-YYYY">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>MEASUREMENT PERIOD (TO)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="todate" id=""   autocomplete="off" placeholder="DD-MM-YYYY">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>TEST TURBINE</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="testturbine" id=""   autocomplete="off" placeholder="Test Turbine">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>MAKE</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="make" id=""   autocomplete="off" placeholder="Make">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>TURBINE MODEL</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="turbinemodel" id=""   autocomplete="off" placeholder="Turbine Model">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>TURBINE CAPACITY (kW)</td>
+                                        <td>
+                                        <input class="form-control" type="number" name="turbinecapacity" id=""   autocomplete="off" placeholder="Turbine Capacity (kW)">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>ROTOR DIAMETER (m)</td>
+                                        <td>
+                                        <input class="form-control" type="number" name="rotordiameter" id=""   autocomplete="off" placeholder="Rotor Diameter (m)">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>HUB HEIGHT (m)</td>
+                                        <td>
+                                        <input class="form-control" type="number" name="hubheight" id=""   autocomplete="off" placeholder="Hub Height (m)">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>TEST TURBINE LOCATION</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="testturbinelocation" id=""   autocomplete="off" placeholder="Test Turbine Location">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>REFERENCE MAST LOCATION</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="referencemastlocation" id=""   autocomplete="off" placeholder="Reference Mast Location">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>PRESSURE SENSOR HEIGHT (m)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="presensorheight" id=""   autocomplete="off" placeholder="Pressure Sensor Height (m)">
+                                        </td></tr>
+
+                                        <tr>
+                                        <td>TURBINE ALTITUDE (m)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="turbinealtitude" id=""   autocomplete="off" placeholder="Turbine Altitude (m)">
+                                        </td></tr>
+
+                                    </tbody>
+                                </table>
+                                </div>
+
+                            <p class="help-block"><br><b>DO NOT FORGET TO SUBMIT AND <strong>UPLOAD</strong>.</b><br>Any empty field will be assumed as NULL / ZERO(0)<br><br></p>
+
+                            <button type="reset" id="reset" class="btn btn-default btn-md">RESET</button>
+                            <button type="submit" id="submit" class="btn btn-success btn-md">SUBMIT</button>
+                            </div>
+
+              	    </center>
+             	</div>
+
+		    </div>
+	    </div>
+
+    </div>
+
+
+<!-- </form> -->
+
+                <!--<button id="activate-step-2" class="btn btn-primary btn-md">Next</button>-->
+            </div>
+        </div>
+    </div>
+</form>
+
+
+    <form action="filter.jsp" method="POST" class="container-fluid">
+
+
+    <div class="row setup-content" id="step-2">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1 class="text-center"><font size="5"></font></h1>
+
+<!-- <form> -->
+
+    <div class="container col-xs-12">
+        <div class="row clearfix">
+		    <div class="col-xs-12 column">
+            	 <div class="row">
+                    <center>
+
+
+                        <table class="table table-bordered"><tr><td><center><label><font size="4">STEP 2</font><br><font size="6">FILTERING CRITERIA</font></label></center></td></tr></table>
+                            <div class="form-group">
+
+                                <p class="help-block"><b>Following Filtering Criteria to be applied on Input Data.</b></p>
+
+                                    <div class="form-group">
+                                    <div class="table-responsive">
+                                     <table class="table table-bordered table-hover" id="tab_logic">
+									<thead>
+                                    <td><font size="4"><b><center>#</center></b></font></td>
+                                    <td><font size="4"><b><center>CRITERION</center></b></font></td>
+                                    <td><font size="4"><b><center>MINIMUM</center></b></font></td>
+                                    <td><font size="4"><b><center>MAXIMUM</center></b></font></td>
+                                    </thead>
+
+				    <tbody>
+				            
+                        <tr id='addr1'>
+                        <td>1</td>
+
+						<td>
+								<select name="criteria1" id="criteria1" class="form-control">
+                                    <option>WIND SPEED</option>
+                                    <option>WIND DIRECTION</option>
+                                    <option>WIND TEMPERATURE</option>
+                                    <option>HUMIDITY</option>
+                                    <option>PRESSURE</option>
+                                    <option>POWER</option>
+                                    <option>MANUAL STOP</option>
+                                    <option>TURBINE AVAILABILITY</option>
+                                    <option>GRID AVAILABILITY</option>
+                                    <option>FAULT</option>
+                                    <option>ROTOR RPM</option>
+                                    <option>PITCH ANGLE</option>
+                                    <option>FREQUENCY</option>
+                                    <option>RAIN</option>
+                                    <option>UP-FLOW ANGLE</option>
+                                    <option>EXTRA PARAMETER 1</option>
+                                    <option>EXTRA PARAMETER 2</option>
+                                    <option>EXTRA PARAMETER 3</option>
+                                    <option>EXTRA PARAMETER 4</option>
+                                    <option>EXTRA PARAMETER 5</option>
+                                </select>
+						</td>
+						<td>
+						<input class="form-control" type="text" name="min1" id="min1" required  autocomplete="off" placeholder="Min">
+						</td>
+						<td>
+						<input class="form-control" type="text" name="max1" id="max1" required  autocomplete="off" placeholder="Max">
+						</td>
+					</tr>
+                    <tr id='addr2'></tr>
+				</tbody>
+			    </table>
+                <center>
+                        <a id="add_row" class="btn btn-success pull-left">Add Another Filter</a><a id='delete_row' class="btn btn-danger pull-right">Remove Last filter</a><div class="[ form-group ]">
+            						<input type="checkbox" name="faultcheck" id="fancy-checkbox-primary" autocomplete="off" />
+            							<div class="[ btn-group ]">
+                							<label for="fancy-checkbox-primary" class="[ btn btn-primary ]">
+                    							<span class="[ glyphicon glyphicon-ok ]"></span>
+                    								<span> </span>
+                							</label>
+                							<label for="fancy-checkbox-primary" class="[ btn btn-default active ]" >
+                    						Time Stamp having data immediately after a fault to be DELETED
+                							</label>
+            							</div>
+                </center>
+                                
+                          </div>
+                            
+                            
+                            
+                            
+                            
+                            <p class="help-block"><b>DO NOT FORGET TO SUBMIT.</b><br>Any empty field will be assumed as NULL / ZERO(0)<br></p>
+                            <br>
+                            <button type="reset" id="reset" class="btn btn-default btn-md">RESET</button>
+                            <button type="submit" id="submit" class="btn btn-success btn-md">SUBMIT</button><br><br>
+                            </div>
+                            </form>
+                    </center>
+             	</div>
+		    </div>
+	    </div>
+    </div>
+
+<!-- </form> -->
+
+                <!--<button id="activate-step-3" class="btn btn-primary btn-md">Next</button>-->
+            </div>
+        </div>
+    </div></div>
+
+</form>
+
+
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1 class="text-center"><font size="5"></font></h1>
+
+<div class="container col-xs-12">
+        <div class="row clearfix">
+		    <div class="col-xs-12 column">
+            	 <div class="row">
+                 <center>
+                 <table class="table table-bordered"><tr><td><center><label><font size="4">STEP 3</font><br><font size="6">STATIC DETAILS</font></label></center></td></tr></table>
+                  <div class="form-group">
+                    <div class="table-responsive">
+                    <table class="table table-bordered">
+                                <center>
+                                
+                                	<form action="uploadstaticpower.jsp" method="POST" class="container-fluid" enctype = "multipart/form-data">
+                                        <tr><center>
+                                        <th><center>POWER CURVE (CSV Comma Delimited)</center></th></center></tr>
+                                        <tr><td><center><input type="file"  accept=".csv"  placeholder="Raw Data File" name="file" id="file" class="btn btn-md btn-default"></input><br>
+                                        <button type="submit" id="submit" class="btn btn-success btn-sm">Upload Power Curve</button>
+                                        </center></td></center></tr>
+                                        </form>
+                                </center>
+                  	</table>
+                    <table class="table table-bordered">
+                                <center>
+                                
+                                	<form action="uploadstaticfrequency.jsp" method="POST" class="container-fluid" enctype = "multipart/form-data">
+                                        <tr><center>
+                                        <th><center>FREQUENCY DISTRIBUTION (CSV Comma Delimited)</center></th></center></tr>
+                                        <tr><td><center><input type="file"  accept=".csv"  placeholder="Raw Data File" name="file" id="file" class="btn btn-md btn-default"></input><br>
+                                        <button type="submit" id="submit" class="btn btn-success btn-sm">Upload Frequency Distribution</button>
+                                        </center></td></center></tr>
+                                        </form>
+                                </center>
+					</table>
+
+                  </div>
+                  </div>
+                  </center></div></div></div></div>
+
+
+                <!--<button id="activate-step-4" class="btn btn-primary btn-md">Next</button>-->
+            	</center>
+            </div>
+        </div>
+    </div>
+
+
+<form action = "binning.jsp" method = "POST" class="container-fluid">
+
+    <div class="row setup-content" id="step-4">
+        <div class="col-xs-12">
+            <div class="col-xs-12 well text-center">
+                <h1 class="text-center"><font size="5"></font></h1>
+
+<!--<form>-->           
+                        
+                        <table class="table table-bordered"><tr><td><center><label><font size="4">STEP 4</font><br><font size="6">BINNING DATA</font></label></center></td></tr></table>
+
+                            <p class="help-block"><b>NOTE: Database shall at least cover a wind speed range extending from 1 m/s below cut-in to 1.5 times the wind speed (Vref) at 85 % of the rated power of the wind turbine. Also each bin should include a minimum of 30 min of sampled data. For analysis only wind speed from cut in to cut out/till complete bin will be considered.</b></p><br>
+                            <div class="table-responsive" >
+                            <table class="table table-bordered table-hover" id="tab_logic" width="50%">
+                            <tbody>
+                                <tr>
+                                    <td><font size = "5"><b>SPEED BIN</b></font></td>
+                                    <td colspan="2"  width="50%">
+                                        <select name="binningrange" id="binningrange" class="form-control">
+                                            <option>1 (Default)</option>
+                                            <option>0.5</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+                            </div>
+                            <br><button formaction="binning.jsp" class="btn btn-success btn-lg">Calculate</button><br><br>
+                            
+
+                        <!--</form> -->
+                        <!--<button id="activate-step-5" class="btn btn-primary btn-md">Next</button>-->
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+     <div class="row setup-content" id="step-5">
+        <div class="col-lg-12">
+            <div class="col-md-12 well text-center">
+                <h1><font size="5"></font></h1>
+
+<!-- <form> -->
+
+    <div class="container col-xs-12">
+        <div class="row clearfix">
+		    <div class="col-xs-12 column">
+            	 <div class="row">
+                 <center>
+
+						<table class="table table-bordered"><tr><td><center><label><font size="4">STEP 5</font><br><font size="6">UNCERTAINTY DATA</font></label></center></td></tr></table>
+                        <div class="form-group">
+                                <br>
+                                <div class="table-responsive">
+                                
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th width="50%"><font size="4">PARAMETER</font></th>
+                                            <th width="50%"><font size="4">VALUE</font></th>
+                                        </tr>
+                                    </thead>
+                                    </tbody>
+                                </table>
+
+										<table class="table table-bordered">
+
+                                        <tbody>
+                                        <form action="uncertainty.jsp" method="POST" class="container-fluid">
+
+                                        <tr>
+                                        <td colspan="2"><b><i>ELECTRICAL POWER</i></b></td>
+                                        </tr>
+
+                                        <tr>
+                                        <td width="50%">200 % of Nominal power(Pn)</td>
+                                        <td width="50%">
+                                        <input class="form-control" type="text" name="pn" id=""   autocomplete="off" placeholder="200 % of Nominal power(Pn)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty limits for current transformer(Ucl)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="ucl" id=""   autocomplete="off" placeholder="Uncertainty limits for current transformer(Ucl)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty limits for voltage transformer(Uvl)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="uvl" id=""   autocomplete="off" placeholder="Uncertainty limits for voltage transformer(Uvl)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty limits for power transducer (Upl)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="upl" id=""   autocomplete="off" placeholder="Uncertainty limits for power transducer (Upl)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty % of data acquisition system (Ud1)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="ud1" id=""   autocomplete="off" placeholder="Uncertainty % of data acquisition system (Ud1)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Electrical power range of measurement channel of data acquisition system (Pmr)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="pmr" id=""   autocomplete="off" placeholder="Electrical power range of measurement channel of data acquisition system (Pmr)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty in power transducer (UPT)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="upt" id=""   autocomplete="off" placeholder="Uncertainty in power transducer (UPT)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty in data acquisition system for the power measuring channel (Udp)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="udp" id=""   autocomplete="off" placeholder="Uncertainty in data acquisition system for the power measuring channel (Udp)">
+                                        </td>
+                                        </tr>
+                                        </tbody>
+                                        </table>
+
+
+
+										<table class="table table-bordered">
+                                         <tr>
+                                        <td colspan="2"><b><i>WIND SPEED</i></b></td>
+                                        </tr>
+
+                                        <tr>
+                                        <td width="50%">Uncertainty % of data acquisition system (Ud2)</td>
+                                        <td width="50%">
+                                        <input class="form-control" type="text" name="ud2" id=""   autocomplete="off" placeholder="Uncertainty % of data acquisition system (Ud2)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Wind speed range of measurement channel of data acquisition system (Vmr)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="vmr" id=""   autocomplete="off" placeholder="Wind speed range of measurement channel of data acquisition system (Vmr)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty of the anemometer calibration (Uac)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="uac" id=""   autocomplete="off" placeholder="Uncertainty of the anemometer calibration (Uac)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty % for flow distortion due to terrain (Uf)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="uf" id=""   autocomplete="off" placeholder="Uncertainty % for flow distortion due to terrain (Uf)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Anemometer Class Number (k)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="k" id=""   autocomplete="off" placeholder="Anemometer Class Number (k)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty Due To Mounting (Um)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="um" id=""   autocomplete="off" placeholder="Uncertainty Due To Mounting (Um)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty in data acquisition system for the wind speed (Udv)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="udv" id=""   autocomplete="off" placeholder="Uncertainty in data acquisition system for the wind speed (Udv)">
+                                        </td>
+                                        </tr>
+										</tbody>
+                                        </table>
+
+
+
+										<table class="table table-bordered">
+                                        <tr>
+                                        <td colspan="2"><b><i>AIR TEMPERATURE</i></b></td>
+                                        </tr>
+
+                                        <tr>
+                                        <td width="50%">Uncertainty % of data acquisition system (Ud3)</td>
+                                        <td width="50%">
+                                        <input class="form-control" type="text" name="ud3" id=""   autocomplete="off" placeholder="Uncertainty % of data acquisition system (Ud3)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Temperature range of measurement channel of data acquisition system (Tmr)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="tmr" id=""   autocomplete="off" placeholder="Temperature range of measurement channel of data acquisition system (Tmr)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty of temperature sensor (Uts)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="uts" id=""   autocomplete="off" placeholder="Uncertainty of temperature sensor (Uts)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty due to imperfect radiation shielding of temperature sensor (Urt)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="urt" id=""   autocomplete="off" placeholder="Uncertainty due to imperfect radiation shielding of temperature sensor (Urt)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty due to mounting effects of temperature sensor (Umot)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="umot" id=""   autocomplete="off" placeholder="Uncertainty due to mounting effects of temperature sensor (Umot)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty in the data acquisition system for the air temperature (Udt)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="udt" id=""   autocomplete="off" placeholder="Uncertainty in the data acquisition system for the air temperature (Udt)">
+                                        </td>
+                                        </tr>
+										</tbody>
+                                        </table>
+
+
+
+										<table class="table table-bordered">
+                                        <tr>
+                                        <td colspan="2"><b><i>AIR PRESSURE</i></b></td>
+                                        </tr>
+
+                                        <tr>
+                                        <td width="50%">Uncertainty % of data acquisition system (Ud4)</td>
+                                        <td width="50%">
+                                        <input class="form-control" type="text" name="ud4" id=""   autocomplete="off" placeholder="Uncertainty % of data acquisition system (Ud4)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Pressure range of measurement channel of data acquisition system (Prmr)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="prmr" id=""   autocomplete="off" placeholder="Pressure range of measurement channel of data acquisition system (Prmr)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty of air pressure calibration (UPrc)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="uprc" id=""   autocomplete="off" placeholder="Uncertainty of air pressure calibration (UPrc)">
+                                        </td>
+                                        </tr>
+
+                                        <tr>
+                                        <td>Uncertainty due to mounting effects of air pressure sensor (UmtPr)</td>
+                                        <td>
+                                        <input class="form-control" type="text" name="umtpr" id=""   autocomplete="off" placeholder="Uncertainty due to mounting effects of air pressure sensor (UmtPr)">
+                                        </td>
+                                        </tr>
+										</tbody>
+                                        </table>
+
+
+
+                                       
+                                <p class="help-block"><b>DO NOT FORGET TO SUBMIT.</b><br>Any empty field will be assumed as NULL / ZERO(0)<br><br></p>
+
+                                <button type="reset" id="reset" class="btn btn-warning btn-md">RESET</button>
+                                <button type="submit" id="submit" class="btn btn-success btn-md">SUBMIT</button>
+                              </form>
+                                </div>
+
+
+                            </div>
+
+              	    </center>
+             	</div>
+
+		    </div>
+	    </div>
+
+    </div>
+
+                <!--<button id="activate-step-6" class="btn btn-primary btn-md">Next</button>-->
+            </div>
+        </div>
+    </div>
+
+<form class="container-fluid">
+
+    <div class="row setup-content" id="step-6">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1 class="text-center"><font size="5"></font></h1>
+                <table class="table table-bordered"><tr><td><center><label><font size="4">STEP 6</font><br><font size="6">RESULTS</font></label></center></td></tr></table><br>
+                <button formaction="results.jsp" class="btn btn-success btn-lg">CALCULATE RESULTS</button><br><br>
+                <!-- <button formaction="downloadresult1.jsp" class="btn btn-primary btn-sm">Download Result 1</button>
+                <button formaction="downloadresult2.jsp" class="btn btn-primary btn-sm">Download Result 2</button>
+                <button formaction="downloadresult3.jsp" class="btn btn-primary btn-sm">Download Result 3</button> -->
+
+
+<!--<form></form> -->
+<!--<button id="activate-step-7" class="btn btn-primary btn-md">Next</button>-->
+
+            </div>
+        </div>
+    </div>
+
+</form>
+<form class="container-fluid">
+
+    <div class="row setup-content" id="step-7">
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <h1 class="text-center"><font size="5"></font></h1>
+                <table class="table table-bordered"><tr><td><center><label><font size="4">STEP 7</font><br><font size="6">GRAPHS</font></label></center></td></tr></table><br><br>
+                <button formaction="scattergraphs.jsp" class="btn btn-success btn-lg">SCATTER GRAPHS</button><br><br>
+                <button formaction="errorgraphs.jsp" class="btn btn-success btn-lg">ERROR GRAPHS</button>
+<!--<form></form> -->
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script language="javascript" src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script language="javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script language="javascript" src="js/plugins/morris/raphael.min.js"></script>
+    <script language="javascript" src="js/plugins/morris/morris.min.js"></script>
+    <script language="javascript" src="js/plugins/morris/morris-data.js"></script>
+
+
+
+</body>
+
+</html>
